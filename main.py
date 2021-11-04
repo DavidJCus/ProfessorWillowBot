@@ -5,16 +5,17 @@ import requests
 import json
 from replit import db
 from keep_alive import keep_alive
+from banned_word import banned_words
+from banned_word import banned_phrases
+from banned_word import smh_phrases
+from banned_word import smh_words
 
 token = os.environ['bot.token']
+banword = os.environ['bannedwords']
 client = discord.Client() 
 raids_won = 0
 threestar_caught = 0
 shiny_caught = 0
-banned_words = ["gay","g@y", "homo","h0m0", "fag", "faggot", "pussy", "nigger", "chink", "puta", "putain","dick", "bitch", "rape", "r@pe", "whore"]
-banned_phrases = ["suck my dick", "fuck you", "fucked your mom", "fucked ur mom", "beta cuck", "love you long time", "ching chong"]
-smh_words = ["ligma", "deez", "updog"]
-smh_phrases = ["deez nuts"]
 
 db["Raids_won"]
 db["star_caught"]
