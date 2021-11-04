@@ -175,4 +175,3 @@ async def on_message(message):
     
 keep_alive()
 client.run(token) 
-#copy URL and use uptimerobot.com to keep server alive 
