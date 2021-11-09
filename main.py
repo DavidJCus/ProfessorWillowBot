@@ -61,9 +61,6 @@ async def on_message(message):
   msgsplit = msg.split()
   
   welcome = "This server has accomplished the following together:"
-  #raid = "Raids together:  "+ str(db["Raids_won"])
-  #star = "3-stars caught:  "+ str(db["star_caught"])
-  #shiny = "Shinies caught:  "+ str(db["shiny_caught"])
   praise = "Awesome job everyone!!"
   command = "Commands can be found in #extra-resources"
 
@@ -76,12 +73,7 @@ async def on_message(message):
     embedVar.add_field(name="3-stars caught:", value=str(db["star_caught"]), inline=True)
     embedVar.add_field(name="Shinies caught:", value=str(db["shiny_caught"]), inline=True)
     embedVar.add_field(name="\u200b",value=praise+"\n"+command)
-    #embedVar.set_footer(text=command)
     await message.channel.send(embed=embedVar)
-
-
-  #if msg.startswith("$achievements"):
-   # await message.channel.send(welcome + '\n' + raid + '\n' + star + '\n' + shiny + '\n' + praise + '\n' + command)
 
   if msg.startswith("$bannedwords"):
     await message.channel.send("**Current banned words: **" + str(banned_words) +'\n' + "**Current banned phrases: **"+ str(banned_phrases) + '\n' "**Unfunny words: **" + str(smh_words) + '\n' + "**Unfunny phrases: **" + str(smh_phrases))
@@ -120,7 +112,6 @@ async def on_message(message):
     pokemon = (msg.split("-pokedex ",1)[1])
     pokedex(pokemon)
     json_data = pokedex(pokemon)
-    #name = "**Name**: " + json_data["name"]
     pokeid = "**ID:** " + json_data["id"]
     generation = "**Generation:** " +json_data["generation"]
     poketype = "**Type:** " + ' & '.join(json_data["type"])
@@ -135,9 +126,6 @@ async def on_message(message):
       evolution = "**Evolution line:** " + ' -> '.join(json_data["family"]["evolutionLine"])
     
     description = json_data["description"]
-
-    #await message.channel.send (sprites)
-    #await message.channel.send(name + '\n' + pokeid + '\n' + generation + '\n' + poketype + '\n' + abilities + '\n' + height + '\n' + weight + '\n'+ evolution + '\n' + description)
 
     dex = discord.Embed(title=pokemon.upper(), description = description , color=0x6cc3c4)
     dex.set_thumbnail(url=sprites)
